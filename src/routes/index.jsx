@@ -22,7 +22,6 @@ const CHANNEL_DATA = {
   '0dad8baf12a436f722faa8e5001c5011': { name: '따효니 DDaHyoNi', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAxMTRfMTUy/MDAxNzA1MTY2NzAxMDM0.jxRoo4V4TdOptYggL80STQpPI-gHlzL43jzAaStOnsAg.3xenvZbIgK6vdP82zXdEG3w5X0rrKphOGY0HhTlM_58g.PNG/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7_2024-01-14_022438.png?type=f120_120_na' },
   '17f0cfcba4ff608de5eabb5110d134d0': { name: '김뿡 bbonge', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMzcg/MDAxNzAyOTY4NjcwMjQ0.5fcfhD3T5AK6edg7cKG8JHE9-aCPAOMEhuwXnWDg7pMg.zQb1rOPvTtPWo4IEWuVt2Gye5GxWwdFVrRfd2iRGvAgg.PNG/%EC%97%86%EB%8A%94%EA%B1%B8%EB%A1%9C%EC%81%AD.png?type=f120_120_na' },
   'f722959d1b8e651bd56209b343932c01': { name: '아이리 칸나에요', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMDRfMjUz/MDAxNzA3MDM1NzIyOTU1.MC7JHnCLGswHKXZsuKVE0qSSGh9NPhNMqgxhbj3tfWsg.xPxkEk46C0CAxs9NGyuWsuCK8j3fHsPtVumOHQyRKqcg.PNG/33333333.png?type=f120_120_na' },
-
   //23
   'a6c4ddb09cdb160478996007bff35296': { name: '알아하쇼 타비', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMDJfOTEg/MDAxNzA2ODU4NDQ1Mjcz.0d4_1_jWl96L1nbucKWjfBsFESVMc8c7N8iT9W0N16Ug.nfW7-r6KTLAJOaRyOa9SiJ9spxY656qauPeZHCfckMog.PNG/1231451515.png?type=f120_120_na' },
   '2086f44c7b09a17cef6786f21389db3b': { name: '지누', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfNTgg/MDAxNzAyOTk1OTUwOTYw.L2x45gGl5EWXkViGr04MDaZ04EQvUIc3TvTr_zW8irYg.F4Wi08nW5i8fjB4R9cqaCeaGiiBXt8E2ZccqhZBb71kg.JPEG/profile13.jpg?type=f120_120_na' },
@@ -53,7 +52,8 @@ const CHANNEL_DATA = {
   '8b3e8e3a13201cff0836c69cfab62f45': { name: 'Flame 플레임', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMjBfODMg/MDAxNzAzMDU2MDE2MDU3.vfDZPNp8d4Lv191HrM6CPV6HRGCqthiKusM21rXQQSIg.HKzaJikdhNVqDTWIHGL7pCVSfZq80FuuCEqXx17VHMgg.PNG/i8271963014.png?type=f120_120_na' },
   'fe558c6d1b8ef3206ac0bc0419f3f564': { name: '플러리', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMzAw/MDAxNzAyOTU2NDM5Mzkz.q8T_eeojL1oj7cpYX_fW4gcW8Ia9oUM1ece5us4HbSQg.WnlG0KJeueRu8WX8yD-BPNj7YRqQhL4zNozCzYzOIsYg.JPEG/KakaoTalk_20231219_122543055_02.jpg?type=f120_120_na' },
 
-
+  //ex
+  '1a1dd9ce56fb61a37ffb6f69f6d5b978': { name: '강퀴88', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfOTEg/MDAxNzAyOTY1NDIxNjI0.VGu1PSM5BJfNVu2nVsDF5YAqH42_9ZX8iMaastWPio0g.8dCFAW0kt7hf1sXK1oQabkxt4lQiultQA1HAMFOsoPgg.PNG/psa.png?type=f120_120_na' },
 
 };
 
