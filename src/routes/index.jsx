@@ -23,7 +23,38 @@ const CHANNEL_DATA = {
   '17f0cfcba4ff608de5eabb5110d134d0': { name: '김뿡 bbonge', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMzcg/MDAxNzAyOTY4NjcwMjQ0.5fcfhD3T5AK6edg7cKG8JHE9-aCPAOMEhuwXnWDg7pMg.zQb1rOPvTtPWo4IEWuVt2Gye5GxWwdFVrRfd2iRGvAgg.PNG/%EC%97%86%EB%8A%94%EA%B1%B8%EB%A1%9C%EC%81%AD.png?type=f120_120_na' },
   'f722959d1b8e651bd56209b343932c01': { name: '아이리 칸나에요', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMDRfMjUz/MDAxNzA3MDM1NzIyOTU1.MC7JHnCLGswHKXZsuKVE0qSSGh9NPhNMqgxhbj3tfWsg.xPxkEk46C0CAxs9NGyuWsuCK8j3fHsPtVumOHQyRKqcg.PNG/33333333.png?type=f120_120_na' },
 
+  //23
+  'a6c4ddb09cdb160478996007bff35296': { name: '알아하쇼 타비', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMDJfOTEg/MDAxNzA2ODU4NDQ1Mjcz.0d4_1_jWl96L1nbucKWjfBsFESVMc8c7N8iT9W0N16Ug.nfW7-r6KTLAJOaRyOa9SiJ9spxY656qauPeZHCfckMog.PNG/1231451515.png?type=f120_120_na' },
+  '2086f44c7b09a17cef6786f21389db3b': { name: '지누', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfNTgg/MDAxNzAyOTk1OTUwOTYw.L2x45gGl5EWXkViGr04MDaZ04EQvUIc3TvTr_zW8irYg.F4Wi08nW5i8fjB4R9cqaCeaGiiBXt8E2ZccqhZBb71kg.JPEG/profile13.jpg?type=f120_120_na' },
+  '5d53f8fa5bef9b1bd4dc884f9907c079': { name: '명훈명훈', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMjBfMjkx/MDAxNzAzMDYwODYyOTE5.bu_SXt56kPeAHr3tE1EYt6JoHn4zrO7xk05eJQWJQ7cg.T32pbYxJ2f9-5GLGfsjUnjiTgkhhf-KmqvGZOmnE7Hwg.PNG/%EC%BA%A1%EC%B2%98%EC%BA%A1%EC%B2%98.PNG?type=f120_120_na' },
+  '219d8e65810a77d6e42c7df018d9632b': { name: '마뫄', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfNDAg/MDAxNzAyOTY0OTM5Nzgz.Rh9xnEtByJ7kkjJxkvbwq-PFpy5L6bOoQBmpKLmDKfIg.KvRYR2vMCaWOwG2Wp7sVHW62BipduF93Y_EvddmIa1Ig.JPEG/unnamed.jpg?type=f120_120_na' },
+  'b044e3a3b9259246bc92e863e7d3f3b8': { name: '시라유키 히나ㅋㅋ', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMDJfMjQ2/MDAxNzA2ODU4MzEyOTQ3.JP7Ip--UhZa7TeWw2VxkOdhfI_aCb6Fp5K2ULyMMeygg.hKlKY5BdmhsRyBwKMAWy9SCV_5dYkb7X4GPSE_V0j0Ag.JPEG/%ED%9E%88%EB%82%98%ED%9E%88%EB%82%98dd%EB%8B%88%ED%95%98.jpg?type=f120_120_na' },
+  '80b36a0ae8e887e893ce0014dbfece4a': { name: '나나양', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMjU2/MDAxNzAyOTU0NjI3Nzc2.KRr9DOgrkexb3_ZkXbBRVxeTSUoZlW4M0DGUxH4aSxUg.LvLOVtEF40gDdm0B-uI9yB72KRhVQVPaKZYGZIM60Kgg.PNG/%EB%BF%8C%EC%9A%B0.png?type=f120_120_na' },
+  '4b2f27574a2e60d15bd53f94cbfc4066': { name: '코렛트1', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMTA3/MDAxNzAyOTU4NTc2Nzk3.qVIwDf_v-PcR5fIhdqftltltXmyuCHZdOW9SwjZPBhsg.sGGHdME6yWm_sXMtmcnd6YObCnzlaqjVCCOKfb3OqJYg.PNG/6_1.png?type=f120_120_na' },
+  'f39c3d74e33a81ab3080356b91bb8de5': { name: '포셔Portia', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMTQg/MDAxNzAyOTk0MDY3MDk4.AYCG30jnoir18ozbTkq9465vMk6hTGAJphCJrz9Qo2sg.0TTspJJqQV5hJEutSeNt6vdX3Mc0XcFzpYFY8NNWkp4g.PNG/KakaoTalk_20231219_183937840.png?type=f120_120_na' },
+  'dec8d19f0bc4be90a4e8b5d57df9c071': { name: '얍얍yapyap', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMjFfMjYy/MDAxNzAzMTE0MjY0MzEw.4HN2-Prah0mvcdg91VweUfHaVWReJvn4GfnNLoXild4g.uMLiWaqHAhnsVnUozRdWca8fNhNsPlDK1q0bbyIxDeQg.PNG/dbb514f1-469b-479e-b5ba-3ac0f09a2776-profile_image-300x300.png?type=f120_120_na' },
+  '8803cee946a9e610a76fbdee98d98c61': { name: '룩삼오피션', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMjFfMiAg/MDAxNzAzMTM1OTI3MjE0.btywvKre6LPS3bCiCA9HVYfZB5VBbtLEkwn76tAN_7cg.L6Fc8ILCjRdr88LNM0xiNlYDTXoCpxhiwvenb-BSNLgg.JPEG/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.jpg?type=f120_120_na' },
+  '4325b1d5bbc321fad3042306646e2e50': { name: '아카네 리제ㅠㅅㅠ', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMTVfMTAx/MDAxNzA3OTY2MDY5ODk4.tfk_l56We9m9MNjpGLIqEUKu9_U1nIGuKq9oQlXwC3Ig.r2Bg6xkarWVPF1RJvL3UsngzlXzyz6erDxxmhpwD1Log.PNG/%EC%9D%BC%EB%9F%AC%EC%8A%A4%ED%8A%B88001.png?type=f120_120_na' },
+  '22bd842599735ae19e454983280f611e': { name: 'ENCHANT', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTVfMjYy/MDAxNzAyNjIwMzQ5NjE1.tVl6ew-9iBd3Z3fEG8iRmzCFbUpf3qKj_o1BSXWB73og.kqiVM7bjKl40zr9m52PqMdO6cZB6mIXYA7PRIM388mcg.JPEG/Symbol.jpg?type=f120_120_na' },
   '0974bf2ded8c3e124797f7be6d1bdbb5': { name: '감블러', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMTk0/MDAxNzAyOTU5NTUzNzYx.HI2Ow6d8GfIKBBaGMNYXrd09WSvkNyQS6Ayaikxsdlsg.WS5q6-wqM6V5GhVFSC_VYhM3Z4myzOSObNzn0GHMKZcg.PNG/%EA%B0%90%EB%B8%94%EB%9F%AC%EB%8B%98_%EB%82%B4%EB%A7%9E%EB%B0%B8.png?type=f120_120_na' },
+  '089185efc29a8fbe14ea294dc85f9661': { name: '소풍왔니 sopoong', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMjE0/MDAxNzAyOTY2ODg2ODEy.ozHKWGbDqCCHRk3DcFY10DNJGE-v_3l-GZrqw_PKYAIg.TmuPla4PHD9B7usVf-oJPYN71QfErkOqsfdYbrGxQrog.JPEG/%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C.jpg?type=f120_120_na' },
+  '19e3b97ca1bca954d1ac84cf6862e0dc': { name: '러너', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMTg2/MDAxNzAyOTcyNTE1NjIy.gQxlCw96YLc3_bOGPNhD6a4zlz4qzn7gc5VV6BNpJP0g._AVnxdEW9y3Ma-z0ClAGDD8wxg3GL1qNOFGv5j7GdmYg.JPEG/ru_%281%29.jpg?type=f120_120_na' },
+  'dcd75ef0f2c664e3270de18696ad43bf': { name: '쌍베 SsangBe', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMTk1/MDAxNzAyOTYyODMwMjk5.4ZFVeyiMnFZN1LxYfLmyua402NJGJ-nPtwL7TKyrcBgg.7TpsVurMp20Fs6XHlRMUQf-JqmIu0PyNp2MolURABwQg.PNG/KakaoTalk_20231219_140925744.png?type=f120_120_na' },
+  '42597020c1a79fb151bd9b9beaa9779b': { name: '파카', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMTRfNDMg/MDAxNzA3OTA5MTQ5NDU4.G5K-PKWURUPk7PC42iPSXn6YSOBF2I2PAW1Smzt0Wk4g.nwSoSF4VAZshbbuf2ksHk68NA5dZTqhFequVgvGWEHgg.JPEG/333333.jpg?type=f120_120_na' },
+  '4515b179f86b67b4981e16190817c580': { name: '진짜 네네코 마시로', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMDJfMjY4/MDAxNzA2ODU5MTE0NjAz.2FfgPh_RmP1DbzPYIVAxkUy2gyiYPHRlvLRHiztPMeAg.4nwqZY5cTZ-QVhdJEnNIAJJiimK6eYc4r7yJNnPASFsg.PNG/6_%EC%86%8C%EC%8A%A41.png?type=f120_120_na' },
+  'c68b8ef525fb3d2fa146344d84991753': { name: '진짜도현', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMTc2/MDAxNzAyOTU2MDIyMDcy.cs4reRZIaW8vmdQvxI0p1FYgKyq6j8sFEORtFD5EJSQg.82cGdftwe4Y9-CIyMswa4P6dTZh3B4q9jr-B6B0Lj3kg.JPEG/IMG_3536.jpg?type=f120_120_na' },
+  '8a59b34b46271960c1bf172bb0fac758': { name: '앰비션', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMThfODUg/MDAxNzAyODkwOTExNjcx.eNZNw7jE2uVB9ONNgYbpeCICvQSLOKQoNkXXiN3PbSMg.crVP8eb-RB4UvCjfFxXWYVUrhnj6X_LBnbiabbhwo8gg.PNG/%EC%A0%9C%EB%AA%A9_%EC%97%86%EC%9D%8C-3.png?type=f120_120_na' },
+  'e112cad680f895d13769c43f56171b4a': { name: '아구 이뽀', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMTI2/MDAxNzAyOTYwMDM3MDky.ezZG21epLypBugWGsVvGe0aho1ZcROtrF8N1AVogwfUg.7kIgNGVT5pH95Babbx7x4ONEV43PlfrlRmzLtrCWNvsg.PNG/%EB%85%BC%EB%85%BC%EB%8B%98%ED%94%84%EB%A1%9C%ED%95%84%EB%85%B8%EB%B0%B0%EA%B2%BD.png?type=f120_120_na' },
+  '17aa057a8248b53affe30512a91481f5': { name: '김도 KimDoe', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMDdfMjA5/MDAxNzAxODc1Mzk0Njgz.4jdg2LkiZM_r-GCnzaLv89BkTh-sWLdYjuYcf_t3IP4g.KhoU7pv7Vk5K4QPKX361Cv7VblSE4LXV5NwjgWETEGkg.PNG/%ED%94%84%EC%82%AC.png?type=f120_120_na' },
+  '1aeb0ca60649660a2e534592ce480f34': { name: '진짜양띵', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAxMjBfMjQ5/MDAxNzA1NzM0MTcwNjIy.zAtW4G0NeaCL9rUx1epXqp_0ilbmJL6Tw8PA3Z032YYg.S1g5UC4nEzxXXELyAkR8CxAZlXxx9dv6q7-LNg5xa1Ug.PNG/6020327d-1cd3-4afb-aefd-62cfbb6f9695-profile_image-300x300.png?type=f120_120_na' },
+  // 47
+  'c100f81959d1c17044be0541eed56f5b': { name: '피닉스박1', profileIMG: 'https://nng-phinf.pstatic.net/MjAyNDAyMDNfMTE3/MDAxNzA2OTUxMjkzMjQ4.3B2KxxTyEpzfCKZTKouycd8ZwRn7CmZG8d8TFz9HZhwg.DWNZZLS2JZD5WYVnHijsBForfURuBsaEkqWzLzyLSzog.PNG/123.png?type=f120_120_na' },
+  'b5da9cbcab300065236b4309ecaf19b7': { name: '스나랑 Snarang', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMjBfMTA0/MDAxNzAzMDE3NjA2Mzgy.NtzeThu7J0eChZAgU2VwPFS4oxWj467Wyj1FjRJX6yYg.pVBlEC1s03BGzAZnEqwgVcG8581kPBARwNH6oSufZM4g.PNG/0E9B22C1-6EFB-4C38-A77A-CC5938A5E0E0-1703017606.png?type=f120_120_na' },
+  '8b3e8e3a13201cff0836c69cfab62f45': { name: 'Flame 플레임', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMjBfODMg/MDAxNzAzMDU2MDE2MDU3.vfDZPNp8d4Lv191HrM6CPV6HRGCqthiKusM21rXQQSIg.HKzaJikdhNVqDTWIHGL7pCVSfZq80FuuCEqXx17VHMgg.PNG/i8271963014.png?type=f120_120_na' },
+  'fe558c6d1b8ef3206ac0bc0419f3f564': { name: '플러리', profileIMG: 'https://nng-phinf.pstatic.net/MjAyMzEyMTlfMzAw/MDAxNzAyOTU2NDM5Mzkz.q8T_eeojL1oj7cpYX_fW4gcW8Ia9oUM1ece5us4HbSQg.WnlG0KJeueRu8WX8yD-BPNj7YRqQhL4zNozCzYzOIsYg.JPEG/KakaoTalk_20231219_122543055_02.jpg?type=f120_120_na' },
+
+
+
 };
 
 function Index() {
@@ -40,9 +71,12 @@ function Index() {
   return (
     <div>
       <style>{`a { color: inherit; text-decoration: inherit;}`}</style>
-      <h1>치지직 실시간 다시보기 서비스입니다.</h1>
+      <Link to="/">
+        <h1>치지직 실시간 다시보기 서비스입니다.</h1>
+      </Link>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-        {channels.map(({ channel_id }) => (
+        {channels.map(({ channel_id }) =>  {
+          return (
           <Link key={channel_id} to={`${channel_id}`}>
             <div>
               <img
@@ -52,7 +86,7 @@ function Index() {
               <p style={{ textAlign: 'center' }}>{CHANNEL_DATA[channel_id]?.name ?? 'undefined'}</p>
             </div>
           </Link>
-        ))}
+        )})}
       </div>
     </div>
   )

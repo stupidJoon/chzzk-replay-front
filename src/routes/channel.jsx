@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Hls from 'hls.js';
 
 function Channel() {
@@ -17,7 +17,10 @@ function Channel() {
 
   return (
     <div>
-      <h1>치지직 실시간 다시보기 서비스입니다.</h1>
+      <style>{`a { color: inherit; text-decoration: inherit;}`}</style>
+      <Link to="/">
+        <h1>치지직 실시간 다시보기 서비스입니다.</h1>
+      </Link>
       <video style={{ width: 'min(100%, 1440px)' }} ref={videoRef} controls></video>
     </div>
   )
