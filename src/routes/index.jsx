@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import styles from './index.module.css';
 
 function Index() {
   const [channels, setChannels] = useState([]);
@@ -13,16 +14,15 @@ function Index() {
   }, []);
 
   return (
-    <div>
-      <style>{`a { color: inherit; text-decoration: inherit;}`}</style>
+    <div className={styles.container}>
       <Link to="/">
         <h1>치지직 실시간 다시보기 서비스입니다.</h1>
       </Link>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+      <div className={styles.channels}>
         {channels.map(({ id, name, profile }) =>  {
           return (
           <Link key={id} to={`${id}`}>
-            <div>
+            <div className={styles.channel}>
               <img
                 style={{ borderRadius: '50%', objectFit: 'cover' }}
                 src={profile}
@@ -35,6 +35,8 @@ function Index() {
           </Link>
         )})}
       </div>
+      <div className={styles.footer}>
+        Coded by <a href="https://github.com/stupidJoon" target="_blank">StupidJoon</a></div>
     </div>
   )
 }

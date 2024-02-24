@@ -1,0 +1,30 @@
+.container {
+  width: min(100%, 768px);
+  margin-inline: auto;
+}
+.container a {
+  color: inherit;
+  text-decoration: inherit;
+}
+.container img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+.channels {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.channel img {
+  margin-inline: auto;
+}
+
+.footer {
+  text-align: center;
+  margin: 1rem;
+}
+.footer a {
+  text-decoration: underline;
+}
