@@ -24,9 +24,12 @@ function Index() {
           <Link key={id} to={`${id}`}>
             <div>
               <img
-                style={{ width: '5rem', borderRadius: '50%' }}
+                style={{ borderRadius: '50%' }}
                 src={profile}
-                alt="profile-img" />
+                alt="profile-img"
+                width="100px"
+                height="100px"
+              />
               <p style={{ textAlign: 'center' }}>{name}</p>
             </div>
           </Link>
