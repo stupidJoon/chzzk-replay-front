@@ -24,7 +24,7 @@ function Index() {
           <Link key={id} to={`${id}`}>
             <div>
               <img
-                style={{ borderRadius: '50%' }}
+                style={{ borderRadius: '50%', objectFit: 'cover' }}
                 src={profile}
                 alt="profile-img"
                 width="100px"
