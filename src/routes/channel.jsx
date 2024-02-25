@@ -9,8 +9,7 @@ function Channel() {
   useEffect(() => {
     if (!channelID) return;
 
-    // const source = `https://54.238.165.178.sslip.io/${channelID}`;
-    const source = `https://158.180.79.219.sslip.io/${channelID}`;
+    const source = `https://${import.meta.env.VITE_SERVER_URL}/${channelID}`;
     const hls = new Hls({ enableWorker: true });
     hls.loadSource(source);
     hls.attachMedia(videoRef.current);

@@ -8,8 +8,7 @@ function Index() {
   useEffect(() => {
     getChannels();
     async function getChannels() {
-      // const data = await fetch('https://54.238.165.178.sslip.io/channels').then(res => res.json());
-      const data = await fetch('https://158.180.79.219.sslip.io/channels').then(res => res.json());
+      const data = await fetch(`https://${import.meta.env.VITE_SERVER_URL}/channels`).then(res => res.json());
       setChannels(data);
     }
   }, []);
