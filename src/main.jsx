@@ -26,6 +26,7 @@ function App() {
 
   useEffect(() => {
     if (import.meta.env.GA4_ID) {
+      console.log('GA initialized!')
       ReactGA.initialize(import.meta.env.GA4_ID);
       setInitialized(true);
     }
