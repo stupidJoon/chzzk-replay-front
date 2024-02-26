@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Hls from 'hls.js';
+import styles from './channel.module.css';
 
 function Channel() {
   const videoRef = useRef();
@@ -17,9 +18,8 @@ function Channel() {
 
   return (
     <div>
-      <style>{`a { color: inherit; text-decoration: inherit;}`}</style>
       <Link to="/">
-        <h1>치지직 실시간 다시보기 서비스입니다.</h1>
+        <h1 className={styles.title}>치지직 실시간 다시보기 서비스입니다.</h1>
       </Link>
       <video style={{ width: 'min(100%, 1440px)' }} ref={videoRef} controls></video>
     </div>

@@ -4,6 +4,7 @@ import { useLocation, Routes, Route } from "react-router-dom";
 import ReactGA from "react-ga4";
 import Index from './routes/index';
 import Channel from './routes/channel';
+import './App.css';
 
 function App() {
   const location = useLocation();
