@@ -1,27 +1,83 @@
-import { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Hls from 'hls.js';
 import styles from './channel.module.css';
 
+function downloadBlob(blob, filename) {
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  a.remove();
+  window.URL.revokeObjectURL(url);
+}
+
+function startRecording(hls, channelID) {
+  recorder = new MediaRecorder(hls.media.captureStream());
+  const chunks = [];
+
+  let type = '';
+
+  recorder.ondataavailable = (event) => {
+    type = event.data.type;
+    chunks.push(event.data);
+  };
+
+  recorder.onstop = () => {
+    const blob = new Blob(chunks, { type });
+    downloadBlob(blob, channelID);
+  };
+
+  recorder.start();
+}
+
+function stopRecording() {
+  recorder.stop();
+  recorder = undefined;
+}
+
+let recorder;
+
 function Channel() {
-  const videoRef = useRef();
   const { channelID } = useParams();
+  const videoRef = useRef();
+  const [hls, setHls] = useState();
+  const [isRecording, setIsRecording] = useState(false);
 
   useEffect(() => {
     if (!channelID) return;
-
     const source = `https://${import.meta.env.VITE_SERVER_URL}/${channelID}`;
     const hls = new Hls({ enableWorker: true });
     hls.loadSource(source);
     hls.attachMedia(videoRef.current);
+    setHls(hls);
   }, [channelID]);
 
+  const recordOnclick = () => {
+    if (recorder) {
+      stopRecording();
+      setIsRecording(false);
+    }
+    else {
+      startRecording(hls, channelID);
+      setIsRecording(true);
+    }
+  }
+
   return (
-    <div>
+    <div className={styles.container}>
       <Link to="/">
-        <h1 className={styles.title}>치지직 실시간 다시보기 서비스입니다.</h1>
+        <h1 className={styles.title}>치지직 실시간 다시보기 서비스입니다</h1>
       </Link>
-      <video style={{ width: 'min(100%, 1440px)' }} ref={videoRef} controls></video>
+
+      <video className={styles.video} ref={videoRef} controls></video>
+
+      <button className={styles.record} onClick={recordOnclick}>{isRecording ? '🔴 녹화 종료하기' : '⚪ 녹화 시작하기'}</button>
+
+      <div className={styles.footer}>
+        Coded by <a href="https://github.com/stupidJoon" target="_blank">StupidJoon</a>
+      </div>
     </div>
   )
 }

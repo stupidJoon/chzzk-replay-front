@@ -1,9 +1,14 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  width: min(100%, 768px);
+  display: grid;
+  grid-template-rows: auto auto auto 1fr;
+  gap: 1rem;
+  width: min(100%, 1440px);
   min-height: 100svh;
   margin-inline: auto;
+}
+
+.video {
+  width: 100%;
 }
 
 .title {
@@ -11,19 +16,16 @@
   margin-bottom: 1rem;
 }
 
-.channels {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-}
-
-.channel img {
-  margin-inline: auto;
-  aspect-ratio: 1 / 1;
-  width: 100px;
+.record {
+  background-color: rgb(46, 48, 51);
+  border: none;
+  color: white;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
 .footer {
+  align-self: end;
   text-align: center;
   margin: 1rem;
 }
