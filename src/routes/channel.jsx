@@ -24,7 +24,8 @@ function startRecording(hls, channelID) {
     chunks.push(event.data);
   };
 
-  recorder.onstop = () => {
+  recorder.onstop = (event) => {
+    console.log(event);
     const blob = new Blob(chunks, { type });
     downloadBlob(blob, channelID);
   };
@@ -33,8 +34,11 @@ function startRecording(hls, channelID) {
 }
 
 function stopRecording() {
-  recorder.stop();
-  recorder = undefined;
+  // recorder에 마지막 1초정도는 누락됨. 임시대첵으로 1초 sleep
+  setTimeout(() => {
+    recorder.stop();
+    recorder = undefined;
+  }, 1000);
 }
 
 let recorder;
