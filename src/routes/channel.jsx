@@ -56,6 +56,8 @@ function Channel() {
     hls.loadSource(source);
     hls.attachMedia(videoRef.current);
     setHls(hls);
+
+    videoRef.current.focus();
   }, [channelID]);
 
   const recordOnclick = () => {
@@ -67,7 +69,7 @@ function Channel() {
       startRecording(hls, channelID);
       setIsRecording(true);
     }
-  }
+  };
 
   return (
     <div className={styles.container}>
