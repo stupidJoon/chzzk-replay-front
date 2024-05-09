@@ -40,25 +40,27 @@ function stopRecording() {
     recorder = undefined;
   }, 1000);
 }
-
 let recorder;
+
+const proxyURL = 'https://worker-young-limit-0dd1.junsang-yu3.workers.dev/proxy?proxyUrl=';
+
+const liveDetailURL = (channelID) => proxyURL + `https://api.chzzk.naver.com/service/v2/channels/${channelID}/live-detail`;
+const getLiveDetail = (channelID) => fetch(liveDetailURL(channelID)).then(res => res.json());
+const getLiveID = (liveDetail) => {
+  const livePlayback = JSON.parse(liveDetail.content.livePlaybackJson);
+  const liveID = livePlayback.meta.liveId;
+  return liveID;
+}
+
+const timeMachineURL = (liveID) => proxyURL + `https://api.chzzk.naver.com/service/v1/live/${liveID}/playback/time-machine`;
+const getTimeMachine = (liveID) => fetch(timeMachineURL(liveID)).then(res => res.json());
+const getPlayListURL = (timeMachine) => timeMachine.content.playback.media.find(m => m.mediaId === 'HLS').path;
 
 function Channel() {
   const { channelID } = useParams();
   const videoRef = useRef();
   const [hls, setHls] = useState();
   const [isRecording, setIsRecording] = useState(false);
-
-  useEffect(() => {
-    if (!channelID) return;
-    const source = `https://${import.meta.env.VITE_SERVER_URL}/${channelID}`;
-    const hls = new Hls({ enableWorker: true });
-    hls.loadSource(source);
-    hls.attachMedia(videoRef.current);
-    setHls(hls);
-
-    videoRef.current.focus();
-  }, [channelID]);
 
   const recordOnclick = () => {
     if (recorder) {
@@ -70,6 +72,23 @@ function Channel() {
       setIsRecording(true);
     }
   };
+
+  useEffect(() => {
+    if (channelID === undefined) return;
+    (async () => {
+      const liveDetail = await getLiveDetail(channelID);
+      const liveID = getLiveID(liveDetail);
+      const timeMachine = await getTimeMachine(liveID);
+      const source = getPlayListURL(timeMachine);
+      
+      const hls = new Hls({ enableWorker: true });
+      hls.loadSource(source);
+      hls.attachMedia(videoRef.current);
+      setHls(hls);
+
+      videoRef.current.focus();
+    })();
+  }, [channelID]);
 
   return (
     <div className={styles.container}>

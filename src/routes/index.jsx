@@ -8,11 +8,12 @@ function Index() {
   const [channels, setChannels] = useState([]);
 
   useEffect(() => {
-    getChannels();
-    async function getChannels() {
-      const data = await fetch(`https://${import.meta.env.VITE_SERVER_URL}/channels`).then(res => res.json());
-      setChannels(data);
-    }
+    (async () => {
+      const proxyURL = 'https://worker-young-limit-0dd1.junsang-yu3.workers.dev/proxy?proxyUrl=';
+      const livesURL = 'https://api.chzzk.naver.com/service/v1/lives'
+      const data = await fetch(proxyURL + livesURL).then(res => res.json());
+      setChannels(data.content.data);
+    })();
   }, []);
 
   return (
@@ -21,16 +22,16 @@ function Index() {
         <h1 className={styles.title}>치지직 실시간 다시보기 서비스입니다</h1>
       </Link>
       <div className={styles.channels}>
-        {channels.map(({ id, name, profile }) =>  {
+        {channels.map(({ liveId, channel }) =>  {
           return (
-          <Link key={id} to={`${id}`}>
+          <Link key={liveId} to={`${channel.channelId}`}>
             <div className={styles.channel}>
               <img
                 style={{ borderRadius: '50%', objectFit: 'cover' }}
-                src={profile || PROFILE_DEFAULT}
+                src={channel.channelImageUrl || PROFILE_DEFAULT}
                 alt="profile-img"
               />
-              <p style={{ textAlign: 'center' }}>{name}</p>
+              <p style={{ textAlign: 'center' }}>{channel.channelName}</p>
             </div>
           </Link>
         )})}
