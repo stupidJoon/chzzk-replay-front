@@ -3,45 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import Hls from 'hls.js';
 import styles from './channel.module.css';
 
-function downloadBlob(blob, filename) {
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = filename;
-  a.click();
-  a.remove();
-  window.URL.revokeObjectURL(url);
-}
-
-function startRecording(hls, channelID) {
-  recorder = new MediaRecorder(hls.media.captureStream());
-  const chunks = [];
-
-  let type = '';
-
-  recorder.ondataavailable = (event) => {
-    type = event.data.type;
-    chunks.push(event.data);
-  };
-
-  recorder.onstop = (event) => {
-    console.log(event);
-    const blob = new Blob(chunks, { type });
-    downloadBlob(blob, channelID);
-  };
-
-  recorder.start();
-}
-
-function stopRecording() {
-  // recorder에 마지막 1초정도는 누락됨. 임시대첵으로 1초 sleep
-  setTimeout(() => {
-    recorder.stop();
-    recorder = undefined;
-  }, 1000);
-}
-let recorder;
-
 const proxyURL = 'https://worker-young-limit-0dd1.junsang-yu3.workers.dev/proxy?proxyUrl=';
 
 const liveDetailURL = (channelID) => proxyURL + `https://api.chzzk.naver.com/service/v2/channels/${channelID}/live-detail`;
@@ -57,22 +18,27 @@ const getTimeMachine = (liveID) => fetch(timeMachineURL(liveID)).then(res => res
 const getPlayListURL = (timeMachine) => timeMachine.content.playback.media.find(m => m.mediaId === 'HLS').path;
 
 function Channel() {
+  return (
+    <div className={styles.container}>
+      <Link to="/">
+        <h1 className={styles.title}>치지직 실시간 다시보기 서비스입니다</h1>
+      </Link>
+
+      <ChannelVideo />
+
+      <ChannelClips />
+
+      <div className={styles.footer}>
+        Coded by <a href="https://github.com/stupidJoon" target="_blank">StupidJoon</a>
+      </div>
+    </div>
+  )
+}
+
+function ChannelVideo() {
   const { channelID } = useParams();
   const videoRef = useRef();
-  const [hls, setHls] = useState();
-  const [isRecording, setIsRecording] = useState(false);
-
-  const recordOnclick = () => {
-    if (recorder) {
-      stopRecording();
-      setIsRecording(false);
-    }
-    else {
-      startRecording(hls, channelID);
-      setIsRecording(true);
-    }
-  };
-
+  
   useEffect(() => {
     if (channelID === undefined) return;
     (async () => {
@@ -81,29 +47,57 @@ function Channel() {
       const timeMachine = await getTimeMachine(liveID);
       const source = getPlayListURL(timeMachine);
       
-      const hls = new Hls({ enableWorker: true });
+      const hls = new Hls({
+        enableWorker: true,
+        startLevel: 5,
+      });
       hls.loadSource(source);
       hls.attachMedia(videoRef.current);
-      setHls(hls);
 
       videoRef.current.focus();
     })();
   }, [channelID]);
 
   return (
-    <div className={styles.container}>
-      <Link to="/">
-        <h1 className={styles.title}>치지직 실시간 다시보기 서비스입니다</h1>
-      </Link>
+    <video className={styles.video} ref={videoRef} controls></video>
+  );
+}
 
-      <video className={styles.video} ref={videoRef} controls></video>
+function ChannelClips() {
+  const { channelID } = useParams();
+  const [clips, setClips] = useState([]);
+  const [page, setPage] = useState(1);
 
-      <button className={styles.record} onClick={recordOnclick}>{isRecording ? '🔴 녹화 종료하기' : '⚪ 녹화 시작하기'}</button>
+  useEffect(() => {
+    (async () => {
+      const json = await fetch(`https://158.180.79.219.sslip.io/clips?channelID=${channelID}`).then(res => res.json());
+      setClips(json);
+    })();
+  }, []);
 
-      <div className={styles.footer}>
-        Coded by <a href="https://github.com/stupidJoon" target="_blank">StupidJoon</a>
+  return (
+    <>
+      <h2>채널 클립</h2>
+      <div className={styles.clips}>
+        {clips.slice((page - 1) * 8, page * 8).map((clip) => {
+          return (
+            <div key={clip.id} className={styles.clip}>
+              <iframe src={`https://chzzk.naver.com/embed/clip/${clip.id}`} frameBorder="0" allow="autoplay; clipboard-write; web-share" allowFullScreen></iframe>
+              <h5>{clip.title}</h5>
+            </div>
+          );
+        })}
       </div>
-    </div>
+      <div className={styles.pagination}>
+        <button onClick={() => (page > 1) && setPage(page - 1)}>◀️</button>
+        <button>{page}</button>
+        <button onClick={() => setPage(page + 1)}>{page + 1}</button>
+        <button onClick={() => setPage(page + 2)}>{page + 2}</button>
+        <button onClick={() => setPage(page + 3)}>{page + 3}</button>
+        <button onClick={() => setPage(page + 4)}>{page + 4}</button>
+        <button onClick={() => setPage(page + 1)}>▶️</button>
+      </div>
+    </>
   )
 }
 

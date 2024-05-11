@@ -6,6 +6,7 @@ const PROFILE_DEFAULT = 'https://ssl.pstatic.net/cmstatic/nng/img/img_anonymous_
 
 function Index() {
   const [channels, setChannels] = useState([]);
+  const [nextPage, setNextPage] = useState();
 
   useEffect(() => {
     (async () => {
@@ -13,8 +14,23 @@ function Index() {
       const livesURL = 'https://api.chzzk.naver.com/service/v1/lives'
       const data = await fetch(proxyURL + livesURL).then(res => res.json());
       setChannels(data.content.data);
+      setNextPage(data.content.page.next);
     })();
   }, []);
+
+  const addChannels = async () => {
+    const proxyURL = 'https://worker-young-limit-0dd1.junsang-yu3.workers.dev/proxy?proxyUrl=';
+    const livesURL = `https://api.chzzk.naver.com/service/v1/lives?concurrentUserCount=${nextPage.concurrentUserCount}&liveId=${nextPage.liveId}`;
+    const data = await fetch(proxyURL + livesURL).then(res => res.json());
+    const newChannels = [...channels];
+    for (const channel of data.content.data) {
+      if (channels.some(ch => ch.liveId === channel.liveId)) continue;
+      newChannels.push(channel);
+    }
+
+    setChannels(newChannels);
+    setNextPage(data.content.page.next);
+  };
 
   return (
     <div className={styles.container}>
@@ -22,7 +38,7 @@ function Index() {
         <h1 className={styles.title}>치지직 실시간 다시보기 서비스입니다</h1>
       </Link>
       <div className={styles.channels}>
-        {channels.map(({ liveId, channel }) =>  {
+        {channels.map(({ liveId, channel }) => {
           return (
           <Link key={liveId} to={`${channel.channelId}`}>
             <div className={styles.channel}>
@@ -36,6 +52,7 @@ function Index() {
           </Link>
         )})}
       </div>
+      <button onClick={addChannels} className={styles.more}>더보기</button>
       <div className={styles.footer}>
         Coded by <a href="https://github.com/stupidJoon" target="_blank">StupidJoon</a>
       </div>

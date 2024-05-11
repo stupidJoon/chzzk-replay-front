@@ -32,3 +32,24 @@
 .footer a {
   text-decoration: underline;
 }
+
+/* clips */
+
+.clips {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-items: center;
+  row-gap: 1rem;
+}
+
+.clips iframe {
+  background-color: lightgray;
+}
+
+.clip h5 {
+  max-width: 300px;
+}
+
+.pagination {
+  margin: 0 auto;
+}

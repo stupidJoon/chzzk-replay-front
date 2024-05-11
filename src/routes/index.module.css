@@ -23,6 +23,10 @@
   width: 100px;
 }
 
+.more {
+  height: fit-content;
+}
+
 .footer {
   grid-row-start: 4;
   text-align: center;
