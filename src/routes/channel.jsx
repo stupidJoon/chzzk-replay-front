@@ -39,24 +39,24 @@ function ChannelVideo() {
   const { channelID } = useParams();
   const videoRef = useRef();
   
-  useEffect(() => {
-    if (channelID === undefined) return;
-    (async () => {
-      const liveDetail = await getLiveDetail(channelID);
-      const liveID = getLiveID(liveDetail);
-      const timeMachine = await getTimeMachine(liveID);
-      const source = getPlayListURL(timeMachine);
+  // useEffect(() => {
+  //   if (channelID === undefined) return;
+  //   (async () => {
+  //     const liveDetail = await getLiveDetail(channelID);
+  //     const liveID = getLiveID(liveDetail);
+  //     const timeMachine = await getTimeMachine(liveID);
+  //     const source = getPlayListURL(timeMachine);
       
-      const hls = new Hls({
-        enableWorker: true,
-        startLevel: 5,
-      });
-      hls.loadSource(source);
-      hls.attachMedia(videoRef.current);
+  //     const hls = new Hls({
+  //       enableWorker: true,
+  //       startLevel: 5,
+  //     });
+  //     hls.loadSource(source);
+  //     hls.attachMedia(videoRef.current);
 
-      videoRef.current.focus();
-    })();
-  }, [channelID]);
+  //     videoRef.current.focus();
+  //   })();
+  // }, [channelID]);
 
   return (
     <video className={styles.video} ref={videoRef} controls></video>
@@ -64,41 +64,46 @@ function ChannelVideo() {
 }
 
 function ChannelClips() {
-  const { channelID } = useParams();
   const [clips, setClips] = useState([]);
-  const [page, setPage] = useState(1);
+  const [nextID, setNextID] = useState();
+  const [nextCount, setNextCount] = useState();
+
+  const updateClips = async () => {
+    let url = proxyURL + 'https://api.chzzk.naver.com/service/v1/channels/7ce8032370ac5121dcabce7bad375ced/clips?orderType=POPULAR&size=8';
+    if (nextID !== undefined && nextCount !== undefined) {
+      url += `&clipUID=${nextID}&readCount=${nextCount}`;
+    }
+
+    const json = await fetch(url).then(res => res.json());
+    setClips(json.content.data);
+    setNextID(json.content.page.next.clipUID);
+    setNextCount(json.content.page.next.readCount);
+  }
+
+  const getNext = () => {
+    updateClips();
+  }
 
   useEffect(() => {
-    (async () => {
-      const json = await fetch(`https://158.180.79.219.sslip.io/clips?channelID=${channelID}`).then(res => res.json());
-      setClips(json);
-    })();
+    updateClips();
   }, []);
 
   return (
     <>
-      <h2>채널 클립</h2>
+      <h2>인기 클립</h2>
       <div className={styles.clips}>
-        {clips.slice((page - 1) * 8, page * 8).map((clip) => {
-          return (
-            <div key={clip.id} className={styles.clip}>
-              <iframe src={`https://chzzk.naver.com/embed/clip/${clip.id}`} frameBorder="0" allow="autoplay; clipboard-write; web-share" allowFullScreen></iframe>
-              <h5>{clip.title}</h5>
-            </div>
-          );
-        })}
+        {clips.map((clip) => (
+          <div key={clip.clipUID} className={styles.clip}>
+            <iframe src={`https://chzzk.naver.com/embed/clip/${clip.clipUID}`} frameBorder="0" allow="autoplay; clipboard-write; web-share" allowFullScreen></iframe>
+            <h5>{clip.clipTitle}</h5>
+          </div>
+        ))}
       </div>
       <div className={styles.pagination}>
-        <button onClick={() => (page > 1) && setPage(page - 1)}>◀️</button>
-        <button>{page}</button>
-        <button onClick={() => setPage(page + 1)}>{page + 1}</button>
-        <button onClick={() => setPage(page + 2)}>{page + 2}</button>
-        <button onClick={() => setPage(page + 3)}>{page + 3}</button>
-        <button onClick={() => setPage(page + 4)}>{page + 4}</button>
-        <button onClick={() => setPage(page + 1)}>▶️</button>
+        <button onClick={() => getNext()}>클립 더보기 ▶️</button>
       </div>
     </>
-  )
+  );
 }
 
 export default Channel;
