@@ -39,24 +39,24 @@ function ChannelVideo() {
   const { channelID } = useParams();
   const videoRef = useRef();
   
-  // useEffect(() => {
-  //   if (channelID === undefined) return;
-  //   (async () => {
-  //     const liveDetail = await getLiveDetail(channelID);
-  //     const liveID = getLiveID(liveDetail);
-  //     const timeMachine = await getTimeMachine(liveID);
-  //     const source = getPlayListURL(timeMachine);
+  useEffect(() => {
+    if (channelID === undefined) return;
+    (async () => {
+      const liveDetail = await getLiveDetail(channelID);
+      const liveID = getLiveID(liveDetail);
+      const timeMachine = await getTimeMachine(liveID);
+      const source = getPlayListURL(timeMachine);
       
-  //     const hls = new Hls({
-  //       enableWorker: true,
-  //       startLevel: 5,
-  //     });
-  //     hls.loadSource(source);
-  //     hls.attachMedia(videoRef.current);
+      const hls = new Hls({
+        enableWorker: true,
+        startLevel: 5,
+      });
+      hls.loadSource(source);
+      hls.attachMedia(videoRef.current);
 
-  //     videoRef.current.focus();
-  //   })();
-  // }, [channelID]);
+      videoRef.current.focus();
+    })();
+  }, [channelID]);
 
   return (
     <video className={styles.video} ref={videoRef} controls></video>
@@ -64,12 +64,13 @@ function ChannelVideo() {
 }
 
 function ChannelClips() {
+  const { channelID } = useParams();
   const [clips, setClips] = useState([]);
   const [nextID, setNextID] = useState();
   const [nextCount, setNextCount] = useState();
 
   const updateClips = async () => {
-    let url = proxyURL + 'https://api.chzzk.naver.com/service/v1/channels/7ce8032370ac5121dcabce7bad375ced/clips?orderType=POPULAR&size=8';
+    let url = `${proxyURL}https://api.chzzk.naver.com/service/v1/channels/${channelID}/clips?orderType=POPULAR&size=8`;
     if (nextID !== undefined && nextCount !== undefined) {
       url += `&clipUID=${nextID}&readCount=${nextCount}`;
     }
